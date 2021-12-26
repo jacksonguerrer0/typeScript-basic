@@ -8,4 +8,4 @@ Este es un mini proyecto donde he aprendido las bases minimas de typeScript.
 * Tener nodeJs
 * Manejar dependencias
 
-> Clona el repositorio y luego lea lo que dice en la hoja index.ts y siga los pasos
+> Clona el repositorio y luego lea lo que dice en la hoja index.ts en src y siga los pasos

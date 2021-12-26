@@ -300,3 +300,6 @@ testAdress({direc: 'Arauquita', email: 'ddfd'})
 
 // Al momento de trabajar con el DOM hay que especificar que tipo de elemento es con el typeCasting (as)
 // const form  = document.querySelector('#form-inputs') as HTMLFormElement
+
+// Bien el ejemplo en produción está hecho con typeScript en el DOM
+// ¿Te gustaria un ejemplo usandolo en Reactjs?
