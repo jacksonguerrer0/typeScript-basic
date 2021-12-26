@@ -1,13 +1,14 @@
+"use strict";
 // Antes de empezar: A medida que vas leyendo puedes descomentar los console.log('Para ver los ejemplos')
 // Recuerda ejecutar: yarn tsc || npm run tsc para transpilar el ts a js
 // TypeScript
 // Es un lenguaje tipado que nos ayudara a mantener un codigo mas seguro 
 // console.log('hola mundo TS :0')
-var $body = document.querySelector('body');
+const $body = document.querySelector('body');
 // console.log($body)
-var hello = 'Hello, How are you?';
+const hello = 'Hello, How are you?';
 // console.log(hello)
-var number = 23234;
+let number = 23234;
 // Marca error ya que se deberia de esperar un cambio de tipo number
 // number = 'fkdjfd'
 number = 434;
@@ -16,52 +17,52 @@ number = 434;
 // 
 // Leccion 2/ Tipos de datos: Number, String, Boolean and Any
 // 
-var num = 23232;
-var str = 'Hola';
-var bolean = true;
-var any;
+let num = 23232;
+let str = 'Hola';
+let bolean = true;
+let any;
 // Los num y str no se pueden modificar a diferentes de datos del mismo
 // console.log(num, str, any)
 // Any si puede tener cualquier valor
 any = 'Hola' || 2323 || null;
 // Union
 // Se pueden hacer uniones a las variables para que acepten mas tipos de datos
-var union = 'Hola';
+let union = 'Hola';
 // 
 // Lección #3 - Arrays
 // 
 // Recuerda que para usar al 100% typeScript es mejor evitar usar objetos de tipo any
-var arr = [1, 2, 3, 4, 5];
-var arr2 = ['Ketnier', 'Hellen', 'Jackson'];
+let arr = [1, 2, 3, 4, 5];
+let arr2 = ['Ketnier', 'Hellen', 'Jackson'];
 // No se puede agregar datos diferentes al ya establecido, en este caso un array de número no puede contener datos tipo string
 // arr.push('df')
 // De esta manera con la union hacemos que el arreglo acepte tipos de datos numeros y string
-var arr3 = [12, 3, 4, '4542', 'Hello'];
+let arr3 = [12, 3, 4, '4542', 'Hello'];
 // Un ejemplo claro de uso en TypeScript es que podemos evitar bugs antes de visualizarlos
 // Intenta recorrer arr ó arr2 para ver las diferencias
 // arr: Te dira que toUpperCase() no funciona con números
 // arr2: Funcionara correctamente ya que es un array de strings
-arr2.forEach(function (name) {
+arr2.forEach(name => {
     // console.log(name.toUpperCase())
 });
 // 
 // Lección #4 - Objetos
 // 
 // Muy pendiente 
-var obj = {
+let obj = {
     name: 'Jackson',
     age: 343
 };
 // No se pueden escribir propiedades si no existen
 // obj.ok = ''
 // Así se  declaran el tipo de dato de los datos de un objeto
-var obj2 = {
+let obj2 = {
     name: 'Ok',
     age: 3
 };
 obj2.name = 'Jackson';
 // No se puede reescribir un objeto con diferentes propiedades a las ya establecidas
-var obj3 = {
+let obj3 = {
     name: 'Jack',
     age: 18
 };
@@ -76,17 +77,17 @@ obj3 = {
 // 
 // Lección #5- Funciones
 // 
-var testFunction = function () {
+let testFunction = () => {
     // console.log('Test de funcion')
 };
 testFunction();
-var testFunctionCopy = function () {
+let testFunctionCopy = () => {
     // console.log('Test de funcion 2')
 };
 testFunctionCopy();
 // void es el resultado sin retornar de una funcion.
 // Cuando se le agrega un return este feine el tipo de dato resultante
-var testFunctionThree = function () {
+let testFunctionThree = () => {
     // console.log('Test de funcion 2')
     return 'Hello';
 };
@@ -94,11 +95,11 @@ console.log(testFunctionThree());
 // Pasar parametros
 // 
 // Inicialmente los parametros inician con tipo any
-var plusOrRest = function (a, b, rest) {
+const plusOrRest = (num, num2, rest) => {
     if (rest) {
-        return a - b;
+        return num - num2;
     }
-    return a + b;
+    return num + num2;
 };
 // Nos pide obligatoriamente los argumentos
 // Esta manera no estan útil ya que esta propensa a errores si los argumentos son diferentes a los esperados
@@ -107,20 +108,20 @@ plusOrRest(1, 3, true);
 // 
 // Definir el tipo de parametros
 // Es recomendable declarar el tipo en minusculas
-var plusOrRestTSC = function (a, b, rest) {
+const plusOrRestTSC = (a, b, rest) => {
     if (rest) {
         return a - b;
     }
     return a + b;
 };
-var salu2 = function (user) {
+const salu2 = (user) => {
     // console.log(`Welcome ${user} to my class`)
 };
 salu2('Jack');
-var userInfo = function (dataUser) {
+const userInfo = (dataUser) => {
     // console.log(`Hola mi nombre es ${dataUser.name}, tengo ${dataUser.age} años y quiero decir que: ${JSON.stringify(dataUser.note)}`)
 };
-var dataUser = {
+const dataUser = {
     name: 'Jack',
     age: 18,
     note: ['Esto solo es una', 'Prueba', 100]
@@ -130,23 +131,51 @@ userInfo(dataUser);
 // Lección #7 - Interface vs Type
 // 
 // En esta lección aprenderas una nueva forma de agregar alias con interace que funciona solo para objetos y tambien sabras como agregar o extender nuevos tipos en uno ya existente
-var cat = {
+const cat = {
     name: 'Michi',
-    age: 1
+    age: 1,
 };
-var person = {
+const person = {
     name: 'Jack',
-    age: 18
+    age: 18,
+    // email: 'ksdjsd@gmail.com'
 };
-var test = function (data) {
-    console.log("El es ".concat(data.name, " y tiene ").concat(data.age, " a\u00F1o"));
+const test = (data) => {
+    console.log(`El es ${data.name} y tiene ${data.age} año`);
 };
 test(cat);
-var testHuman = function (person) {
-    console.log("Datos de humano: ".concat(person.name, " - ").concat(person.age, " - ").concat(person === null || person === void 0 ? void 0 : person.email));
+const testHuman = (person) => {
+    console.log(`Datos de humano: ${person.name} - ${person.age} - ${person === null || person === void 0 ? void 0 : person.email}`);
 };
 testHuman(person);
-var testAdress = function (direccion) {
-    console.log("Eeres de ".concat(direccion.direc, " y tu correo es ").concat(direccion.email, " "));
+const testAdress = (direccion) => {
+    console.log(`Eeres de ${direccion.direc} y tu correo es ${direccion.email} `);
 };
 testAdress({ direc: 'Arauquita', email: 'ddfd' });
+// 
+// TSConfig y como mejorar la estructura del proyecto
+// 
+// Como lo mencione al inicio se necesita transpilar el codigo ts a js, para ello se
+// Ejecutaba el comando yarn tsc index.ts. Ahora imaginate hacerlo muchas veces, esto prodria ser muy tedioso. La solución seria agregarle un observador de cambios para que se transpile:
+// yarn tsc index.ts --watch
+// Si comenzamos un proyecto grande se requiere de una buena estructura en el codigo
+// Al momento de tener muchos archivos a transpilar, hay que crear el archivo tsconfig.json y editarlo
+// Para crearlo ejecute npx tsc --init 
+// Luego edita Y agrega estas opciones
+// {{
+// "rootDir": "./src", 
+// "outDir": "./public",
+//   },
+// "include": ["src"],
+// }F
+// Luego de terminar las configuraciones no es necesario indicar el archivo al transpilar
+// Solo ejecuta yarn tsc --watch
+//
+// Muy bien llegó el momento de la practica
+// 
+// Cosas a tener en cuenta:
+// const form  = document.querySelector('#form-inputs')
+// TypeScript indica que form puede ser nulo y para solucionarlo podemos agregar el operador de asercion no nulo
+// const form  = document.querySelector('#form-inputs')!
+// Al momento de trabajar con el DOM hay que especificar que tipo de elemento es con el typeCasting (as)
+// const form  = document.querySelector('#form-inputs') as HTMLFormElement

@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc index.ts"
+    "dev": "tsc --watch",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "typescript": "^4.5.4"

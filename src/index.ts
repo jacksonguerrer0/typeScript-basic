@@ -131,11 +131,11 @@ console.log(testFunctionThree())
 // Pasar parametros
 // 
 // Inicialmente los parametros inician con tipo any
-const plusOrRest = (a,b, rest) => {
+const plusOrRest = (num, num2, rest) => {
   if(rest){
-    return a - b
+    return num - num2
   }
-  return a + b
+  return num + num2
 }
 // Nos pide obligatoriamente los argumentos
 // Esta manera no estan útil ya que esta propensa a errores si los argumentos son diferentes a los esperados
@@ -254,3 +254,49 @@ const testAdress = (direccion : adress) => {
   console.log(`Eeres de ${direccion.direc} y tu correo es ${direccion.email} `)
 }
 testAdress({direc: 'Arauquita', email: 'ddfd'})
+
+
+
+// 
+// TSConfig y como mejorar la estructura del proyecto
+// 
+
+// Como lo mencione al inicio se necesita transpilar el codigo ts a js, para ello se
+// Ejecutaba el comando yarn tsc index.ts. Ahora imaginate hacerlo muchas veces, esto prodria ser muy tedioso. La solución seria agregarle un observador de cambios para que se transpile:
+// yarn tsc index.ts --watch
+
+
+// Si comenzamos un proyecto grande se requiere de una buena estructura en el codigo
+
+// Al momento de tener muchos archivos a transpilar, hay que crear el archivo tsconfig.json y editarlo
+// Para crearlo ejecute npx tsc --init 
+
+// Luego edita Y agrega estas opciones
+// {{
+// "rootDir": "./src", 
+// "outDir": "./public",
+//   },
+// "include": ["src"],
+// }F
+
+// Luego de terminar las configuraciones no es necesario indicar el archivo al transpilar
+// Solo ejecuta yarn tsc --watch
+
+
+
+
+
+
+//
+// Muy bien llegó el momento de la practica
+// 
+
+// Cosas a tener en cuenta:
+
+// const form  = document.querySelector('#form-inputs')
+// TypeScript indica que form puede ser nulo y para solucionarlo podemos agregar el operador de asercion no nulo
+// const form  = document.querySelector('#form-inputs')!
+
+
+// Al momento de trabajar con el DOM hay que especificar que tipo de elemento es con el typeCasting (as)
+// const form  = document.querySelector('#form-inputs') as HTMLFormElement

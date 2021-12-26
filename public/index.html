@@ -32,24 +32,26 @@
     
     <!-- FORMULARIO -->
     
-    <form>
+    <form id="form-register">
       <div class="row">
         <div class="four columns">
           <!-- SELECT PARA SELECCCIONAR CREDITO / DEBITO -->
           <label for="creditDebitSelect">Crédito / Débito</label>
           <select
+            name="transaction"
             class="u-full-width"
             id="creditDebitSelect"
             required
           >
-            <option value="Option 1">Crédito</option>
-            <option value="Option 2">Débito</option>
+            <option value="credit">Crédito</option>
+            <option value="debit">Débito</option>
           </select>
         </div>
         <div class="four columns">
           <!-- INPUT PARA DE / HACIA -->
           <label for="toFromInput">De / Hacia</label>
           <input
+            name="person"
             class="u-full-width"
             type="text"
             placeholder="Nombre de la persona o entidad"
@@ -61,6 +63,7 @@
           <!-- INPUT PARA Cantidad ($) -->
           <label for="amountInput">Cantidad ($)</label>
           <input
+            name="amount"
             class="u-full-width"
             type="number"
             placeholder="1000"
@@ -70,13 +73,13 @@
         </div>
       </div>
       <label for="details">Detalles</label>
-      <textarea class="u-full-width" placeholder="Detalles" id="details"></textarea>
+      <textarea class="u-full-width" placeholder="Detalles" id="details" name="details"></textarea>
       <!-- INPUT PARA RESPALDO CORREO ELECTRONICO -->
       <label class="example-send-yourself-copy">
-        <input type="checkbox">
+        <input type="checkbox" name="accept" id="accept">
         <span class="label-body">Respaldo por correo electrónico</span>
       </label>
-      <input class="button-primary" type="submit" value="Agregar">
+      <input name="send" class="button-primary" type="submit" value="Agregar">
     </form>
 
     <!-- TABLA CON TRANSACCIONES -->
@@ -90,35 +93,38 @@
           <th>Detalles</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="data-table">
         <tr>
           <td>Crédito</td>
           <td>Dave Gamache</td>
-          <td>- 250</td>
+          <td class="price">-250</td>
           <td>Concierto</td>
         </tr>
         <tr>
           <td>Débito</td>
           <td>Dwayne Johnson</td>
-          <td>+ 100</td>
+          <td class="price">+100</td>
           <td>Entrenamiento</td>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>Total: -$150</td>
-        </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th id="total-prices">Total: -$150</th>
+        </tr>
+      </tfoot>
     </table>
 
     <!-- FOOTER -->
 
     <footer id="footer">
-      <a href="https://www.youtube.com/c/webtoriales" target="_blank" rel=”noreferrer”>Webtoriales</a>
+      <a href="https://www.youtube.com/c/webtoriales" target="_blank" rel=”noreferrer”>Creditos: Webtoriales</a>
     </footer>
   </div>
-
-  <script src="index.js"></script>
+  <!-- Descomenta el script para ver los apuntes en la consola -->
+  <!-- <script src="index.js"></script> -->
+  <script src="app.js"></script>
 </body>
 </html>
